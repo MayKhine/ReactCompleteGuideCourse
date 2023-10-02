@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import logo from "./assets/investment-calculator-logo.png"
+import { Header } from "./components/Header"
 import { InputForm } from "./components/InputForm"
 import { InvestmentTable } from "./components/InvestmentTable"
 function App() {
@@ -55,17 +55,12 @@ function App() {
   }
   return (
     <div>
-      <header className="header">
-        <img src={logo} alt="logo" />
-        <h1>Investment Calculator</h1>
-      </header>
-
+      <Header></Header>
       <InputForm
         onGetUserInputData={getUserInputData}
         onResetButton={resetData}
       ></InputForm>
-      {/* Todo: Show below table conditionally (only once result data is available) */}
-      {/* Show fallback text if no data is available */}
+
       {yearlyData.length > 0 && (
         <InvestmentTable yearlyData={yearlyData}></InvestmentTable>
       )}
