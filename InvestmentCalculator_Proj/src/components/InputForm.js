@@ -29,9 +29,12 @@ export const InputForm = (props) => {
       "expected-return": expectedInterest,
       duration: duration,
     }
-    console.log("submit button is clicked and current input is: ", currentInput)
+    // console.log("submit button is clicked and current input is: ", currentInput)
     props.onGetUserInputData(currentInput)
+  }
+  const onResetButtonHandler = () => {
     //reset
+    props.onResetButton()
     setCurrentSaving("")
     setYearlyContribution("")
     setExpectedInterest("")
@@ -82,7 +85,11 @@ export const InputForm = (props) => {
         </p>
       </div>
       <p className="actions">
-        <button type="reset" className="buttonAlt">
+        <button
+          type="reset"
+          className="buttonAlt"
+          onClick={onResetButtonHandler}
+        >
           Reset
         </button>
         <button
