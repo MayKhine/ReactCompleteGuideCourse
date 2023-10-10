@@ -6,7 +6,7 @@ export const UserList = (props) => {
         {props.userList.map((user) => {
           const text = user.name + "(" + user.age + " years old)"
 
-          return <li>{text}</li>
+          return <li key={user.key}>{text}</li>
         })}
       </ul>
     </div>
