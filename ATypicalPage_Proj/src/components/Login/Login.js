@@ -19,7 +19,6 @@ const passwordReducer = (state, action) => {
     return { value: action.val, isValid: action.val.trim().length > 6 }
   }
   if (action.type === "INPUT_BLUR") {
-    console.log("Here: ", state.value)
     return { value: state.value, isValid: state.value.trim().length > 6 }
   }
   return { value: "", isValid: false }
