@@ -16,16 +16,6 @@ const emailReducer = (state, action) => {
 
 const passwordReducer = (state, action) => {
   if (action.type === "USER_INPUT") {
-    console.log(
-      "Here: ",
-      action.val,
-      "and: ",
-      action.val.trim().length > 6,
-      "action: ",
-      action,
-      state
-    )
-
     return { value: action.val, isValid: action.val.trim().length > 6 }
   }
   if (action.type === "INPUT_BLUR") {
@@ -52,6 +42,9 @@ const Login = (props) => {
     isValid: null,
   })
 
+  const { isValid: emailIsValid } = emailState
+  const { isValid: passwordIsValid } = passwordState
+
   useEffect(() => {
     const identifier = setTimeout(() => {
       setFormIsValid(
@@ -61,7 +54,7 @@ const Login = (props) => {
     return () => {
       clearTimeout(identifier)
     }
-  }, [emailState, passwordState])
+  }, [emailIsValid, passwordIsValid])
 
   const emailChangeHandler = (event) => {
     // setEnteredEmail(event.target.value)
